@@ -1,0 +1,15 @@
+import os       
+
+if __name__ == "__main__":
+    root_dir = os.getcwd()
+    print("==========")
+    print("root dir: ", root_dir)
+    print("==========")
+    
+    items = os.listdir(root_dir)
+    for it in items:
+        if os.path.isfile(root_dir + '\\' + it):
+            if ".pdf" in it:
+                print("--> cropping ", it)
+                command = "pdfcrop" + " " + it + " " + it
+                os.system(command)
